@@ -1,4 +1,4 @@
-# PropertySource Sample
+# PropertySource Example
 
 Read yaml file that is not named application.yml or application-{spring.profiles.active}.yml.
 
