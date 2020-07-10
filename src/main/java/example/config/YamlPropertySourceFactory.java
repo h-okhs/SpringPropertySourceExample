@@ -13,13 +13,15 @@ import org.springframework.lang.Nullable;
 public class YamlPropertySourceFactory implements PropertySourceFactory {
 
     @Override
-    public PropertySource<?> createPropertySource(@Nullable String name, EncodedResource resource) throws IOException {
+    public PropertySource<?> createPropertySource(@Nullable String name, EncodedResource resource)
+        throws IOException {
         Properties propertiesFromYaml = loadYamlIntoProperties(resource);
         String sourceName = name != null ? name : resource.getResource().getFilename();
         return new PropertiesPropertySource(sourceName, propertiesFromYaml);
     }
 
-    private static Properties loadYamlIntoProperties(EncodedResource resource) throws FileNotFoundException {
+    private static Properties loadYamlIntoProperties(EncodedResource resource)
+        throws FileNotFoundException {
         try {
             YamlPropertiesFactoryBean factory = new YamlPropertiesFactoryBean();
             factory.setResources(resource.getResource());

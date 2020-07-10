@@ -2,7 +2,7 @@ package example;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import example.config.AwsConfig;
+import example.config.FooConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,12 +13,12 @@ import org.springframework.test.context.ActiveProfiles;
 public class SpringPropertySourceTest {
 
     @Autowired
-    AwsConfig awsConfig;
+    FooConfig fooConfig;
 
     @Test
     public void test() {
-        assertThat(awsConfig.getSqs().getQueueName()).isEqualTo("queueue");
-        assertThat(awsConfig.getCredential().getAccessKeyId()).isEqualTo("dummy");
+        assertThat(fooConfig.getBar().getSetting1()).isEqualTo("barbar1");
+        assertThat(fooConfig.getBaz().getSetting2()).isEqualTo("bazbaz2");
 
     }
 }
